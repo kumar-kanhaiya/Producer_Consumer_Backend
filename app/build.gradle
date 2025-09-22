@@ -1,6 +1,6 @@
 plugins {
     id 'application'
-    id 'org.springframework.boot' version '3.3.4' // latest stable Spring Boot
+    id 'org.springframework.boot' version '3.3.4'
     id 'io.spring.dependency-management' version '1.1.6'
 }
 
@@ -12,14 +12,26 @@ dependencies {
     // Spring Boot starter for building web (REST) apps
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
-    // Optional: Lombok (if you use @Getter, @Setter, etc.)
+    // Spring Kafka (for KafkaListener, KafkaTemplate, etc.)
+    implementation 'org.springframework.kafka:spring-kafka'
+
+    // Prometheus simple client (for metrics counters, gauges, etc.)
+    implementation 'io.prometheus:simpleclient:0.16.0'
+    implementation 'io.prometheus:simpleclient_hotspot:0.16.0'
+    implementation 'io.prometheus:simpleclient_common:0.16.0'
+
+    // Optional: Spring Boot Actuator + Prometheus for auto-metrics exposure
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'io.micrometer:micrometer-registry-prometheus'
+
+    // Lombok
     compileOnly 'org.projectlombok:lombok:1.18.34'
     annotationProcessor 'org.projectlombok:lombok:1.18.34'
 
-    // Optional: Spring Boot DevTools (hot reload during development)
+    // DevTools
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
-    // Logging (already included in spring-boot-starter-web, but explicit if you want)
+    // Logging
     implementation 'org.springframework.boot:spring-boot-starter-logging'
 
     // Testing
@@ -33,6 +45,5 @@ java {
 }
 
 application {
-    // Your app main class
     mainClass = 'org.example.App'
 }
