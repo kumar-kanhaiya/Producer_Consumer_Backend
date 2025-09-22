@@ -3,7 +3,6 @@ package org.example.Controller;
 import io.prometheus.client.Counter;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
-import org.w3c.dom.css.Counter;
 
 @Service
 public class ConsumerController {
